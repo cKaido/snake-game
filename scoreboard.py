@@ -1,4 +1,6 @@
+from msilib.schema import Font
 from turtle import Turtle
+FONT = ('Times New Roman', 18, 'normal')
 
 
 class Scoreboard(Turtle):
@@ -15,4 +17,8 @@ class Scoreboard(Turtle):
     def increase_score(self):
         self.score += 1
         self.write(f'Score: {self.score} ', move=False, align='center',
-                   font=('Times New Roman', 18, 'normal'))
+                   font=FONT)
+
+    def game_over(self):
+        self.goto(0, 0)
+        self.write("GAME OVER", align="center", font=FONT)
