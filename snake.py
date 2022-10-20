@@ -1,4 +1,4 @@
-from turtle import Turtle, setheading
+from turtle import Turtle
 STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
 UP = 90
@@ -31,6 +31,13 @@ class Snake:
         snake.penup()
         snake.goto(position)
         self.new_snake.append(snake)
+
+    def reset(self):
+        for snake in self.new_snake:
+            snake.goto(1000, 1000)
+        self.new_snake.clear()
+        self.create_snake()
+        self.head = self.new_snake[0]
 
     def extend(self):
         self.add_segment(self.new_snake[-1].position())
