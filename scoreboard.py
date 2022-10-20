@@ -2,15 +2,13 @@ from msilib.schema import Font
 from turtle import Turtle
 FONT = ('Times New Roman', 18, 'normal')
 
-data = open('data.txt')
-high_score = data.read()
-
 
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.high_score = int(high_score)
+        with open('data.txt') as data:
+            self.high_score = int(data.read())
         self.color('White')
         self.penup()
         self.goto(0, 270)
